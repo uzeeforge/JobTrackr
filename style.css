@@ -31,4 +31,71 @@ main {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
+    text-align: center;
+}
+
+.application-form {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  
+}
+
+  .application-form h2 {
+        margin-top: 0;
+    }
+
+.application-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.application-form input,
+.application-form select,
+.application-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.application-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.application-form input,
+.application-form select,
+.application-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.application-form button {
+   padding: 20px;
+   cursor: pointer;
+   font-size: 16px;
+   font-weight: bold;
+   width: 100%;
+}
+
+.application-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.application-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.application-form button:hover {
+    opacity: 0.8;
 }

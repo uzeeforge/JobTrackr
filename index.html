@@ -32,6 +32,34 @@
                 <p>0</p>
             </div>
         </section>
+        <section class="application-form">
+            <h2>Add Job Application</h2>
+
+            <form>
+                <label for="company">Company Name</label>
+                <input type="text" id="company">
+
+                <label for="role">Job Role</label>
+                <input type="text" id="role">
+
+                <label for="date">Date Applied</label>
+                <input type="date" id="date">
+
+                <label for="status">Application Status</label>
+                <select id="status">
+                    <option value="Applied">Applied</option>
+                    <option value="Inteview">Interview</option>
+                    <option value="Rejected">Rejected</option>
+                    <option value="Selected">Selected</option>
+                </select>
+
+                <label for="notes">Notes</label>
+                <textarea id="notes"></textarea>
+<label for="link">Job Posting Link</label>
+<input type="url" id="link">
+                <button type="submit">Add Application</button>
+            </form>
+        </section>
     </main>
     <script src="script.js"></script>
 </body>
