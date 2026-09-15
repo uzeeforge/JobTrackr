@@ -19,17 +19,17 @@
         <section class="stats">
             <div class="stat-card">
                 <h3>Total Applications</h3>
-                <p>0</p>
+                <p id="totalApplications">0</p>
             </div>
 
             <div class="stat-card">
                 <h3>Interviews</h3>
-                <p>0</p>
+                <p id="interviews">0</p>
             </div>
 
             <div class="stat-card">
                 <h3>Selected</h3>
-                <p>0</p>
+                <p id="selected">0</p>
             </div>
         </section>
         <section class="application-form">
@@ -48,7 +48,7 @@
                 <label for="status">Application Status</label>
                 <select id="status">
                     <option value="Applied">Applied</option>
-                    <option value="Inteview">Interview</option>
+                    <option value="Interview">Interview</option>
                     <option value="Rejected">Rejected</option>
                     <option value="Selected">Selected</option>
                 </select>
@@ -60,6 +60,13 @@
                 <button type="submit">Add Application</button>
             </form>
         </section>
+
+                <section class="application-list"
+                id="applicationList">
+            <h2>Your Applications</h2>
+            <input type="text" id="searchInput" placeholder="Search applications...">
+            </section>
+        
     </main>
     <script src="script.js"></script>
 </body>
