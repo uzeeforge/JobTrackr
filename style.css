@@ -91,11 +91,30 @@ main {
     resize: vertical;
 }
 
-.application-form textarea {
-    min-height: 100px;
-    resize: vertical;
-}
 
 .application-form button:hover {
-    opacity: 0.8;
+    opacity: 0.8; 
 }
+
+    .application-card {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+ }
+
+    .application-card h3 {
+        margin-top: 0;
+    }
+
+    .application-card p {
+        margin: 8px 0;
+    }
+
+    .application-card a {
+        word-break: break-all;
+    }
+
+    .application-card:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
