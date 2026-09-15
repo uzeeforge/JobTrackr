@@ -83,12 +83,13 @@ searchInput.addEventListener("input", function() {
     const searchTerm = searchInput.value.toLowerCase();
 
     const filteredAppllications = applications.filter(function(application) {
-        return application.company.toLowerCase().includes(searchTerm);
+        return  application.company.toLowerCase().includes(searchTerm) ||
+                application.role.toLowerCase().includes(searchTerm);
     });
     console.log(filteredAppllications);
     const applicationCards = applicationsList.querySelectorAll(".application-card");
 
     applicationCards.forEach(function(card,index) {
         card.style.display = filteredAppllications.includes(applications[index]) ? "" : "none";
-    })
+    });
 });
