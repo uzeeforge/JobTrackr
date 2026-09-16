@@ -118,3 +118,12 @@ main {
     .application-card:hover {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
+
+    @media (max-width: 600px) {
+        .stats {
+            flex-direction: column;
+        }
+        .application-form {
+            padding: 15px;
+        }
+    }
