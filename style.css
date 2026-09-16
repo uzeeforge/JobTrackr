@@ -123,7 +123,14 @@ main {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
-   @media (max-width: 600px) {
+  .application-form input:focus,
+.application-form select:focus,
+.application-form textarea:focus {
+    outline: 2px solid #4f46e5;
+    border-color: #4f46e5;
+}
+
+    @media (max-width: 600px) {
     .stats {
         flex-direction: column;
     }
