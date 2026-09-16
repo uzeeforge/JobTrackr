@@ -58,14 +58,7 @@ main {
 }
 
 
-.application-form input,
-.application-form select,
-.application-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-}
+
 
 .application-form label {
     display: block;
