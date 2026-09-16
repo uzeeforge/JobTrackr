@@ -1,4 +1,4 @@
-const applications = [];
+const applications = JSON.parse(localStorage.getItem("applications")) || [];
 console.log("SCRIPT STARTED");
 
 const searchInput = 
@@ -29,17 +29,12 @@ form.addEventListener("submit", function(event) {
         link: link
     };
     applications.push(application);
-    const interviewCount = 
-    applications.filter(function(application){
-        return application.status ==="Interview";
-    }).length
-    interviewsElement.textContent = interviewCount;
-    const selectedElement = document.querySelector("#selected");
-    const selectedCount = applications.filter(function(application){
-        return application.status === "Selected";
-    }).length;
-    selectedElement.textContent = selectedCount;
-    totalApplicationsElement.textContent = applications.length;
+    updateStats();
+    localStorage.setItem("applications",
+        JSON.stringify(applications)
+    );
+
+    
     console.log(application);
     const applicationsList = document.querySelector("#applicationList");
     const applicationElement = document.createElement("div");
@@ -59,20 +54,10 @@ form.addEventListener("submit", function(event) {
     deleteButton.addEventListener("click", function(){ 
         const applicationIndex = applications.indexOf(application);
         applications.splice(applicationIndex,1);
+        localStorage.setItem("applications",JSON.stringify(applications));
         applicationElement.remove();
-        totalApplicationsElement.textContent = applications.length;
-
-        const interviewCount = applications.filter(function(application){
-    return application.status === "Interview";
-}).length;
-
-interviewsElement.textContent = interviewCount;
-
-const selectedCount = applications.filter(function(application){
-    return application.status === "Selected";
-}).length;
-
-selectedElement.textContent = selectedCount;
+        updateStats();
+       
 
     });
     form.reset();
@@ -93,3 +78,49 @@ searchInput.addEventListener("input", function() {
         card.style.display = filteredAppllications.includes(applications[index]) ? "" : "none";
     });
 });
+function displayApplication(application){
+    const applicationElement = document.createElement("div");
+    applicationElement.classList.add("application-card");
+    applicationElement.innerHTML = `
+    <h3>${application.company}</h3>
+    <p><strong>Role:</strong> ${application.role}</p>
+    <p><strong>Date Applied:</strong> ${application.date}</p>
+    <p><strong>Status:</strong> ${application.status}</p>
+    <p><strong>Notes:</strong> ${application.notes}</p>
+    <p><strong>Link:</strong> <a href="${application.link}" target="_blank">${application.link}</a></p>
+    <button class="delete-button">Delete</button>
+    `;
+    applicationsList.appendChild(applicationElement);
+    const deleteButton = applicationElement.querySelector(".delete-button");
+    deleteButton.addEventListener("click", function() {
+        const applicationIndex = applications.indexOf(application);
+        applications.splice(applicationIndex, 1);
+        localStorage.setItem("applications", JSON.stringify(applications));
+        applicationElement.remove();
+        updateStats();
+        
+     });
+}
+
+applications.forEach(function(application) {
+    displayApplication(application);
+});
+
+function updateStats(){
+    totalApplicationsElement.textContent = applications.length;
+
+    const interviewCount = applications.filter(function(application) {
+        return application.status === "Interview";
+    }).length;
+
+    interviewsElement.textContent = interviewCount;
+
+    const selectedCount = applications.filter(function(application){
+        return application.status === "Selected";
+    }).length;
+
+    const selectedElement = document.querySelector("#selected");
+    selectedElement.textContent = selectedCount;
+}
+
+updateStats();
