@@ -45,3 +45,7 @@ The project was built as a practical learning project to understand HTML, CSS, J
 - Add dark mode 
 - Add charts and visual analytics 
 - Deploy the project using GitHub Pages
+
+## Screenshot
+
+![JobTrackr Dashboard](screenshot.png)
