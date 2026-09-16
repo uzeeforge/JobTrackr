@@ -59,18 +59,32 @@ function displayApplication(application){
     const applicationElement = document.createElement("div");
     applicationElement.classList.add("application-card");
     applicationElement.innerHTML = `
-    <h3>${application.company}</h3>
-    <p><strong>Role:</strong> ${application.role}</p>
-    <p><strong>Date Applied:</strong> ${application.date}</p>
-    <p><strong>Status:</strong> ${application.status}</p>
-    <p><strong>Notes:</strong> ${application.notes}</p>
-    <p><strong>Link:</strong> ${
-    application.link
-        ? `<a href="${application.link}" target="_blank" rel="noopener noreferrer">${application.link}</a>`
-        : "Not provided"
-}</p>
+    <h3 class="company-name"></h3>
+    <p><strong>Role:</strong> <span class="role"></span></p>
+    <p><strong>Date Applied:</strong> <span class="date"></span></p>
+    <p><strong>Status:</strong> <span class="status"></span></p>
+    <p><strong>Notes:</strong> <span class="notes"></span></p>
+    <p><strong>Link:</strong> <span class="link"></span></p>
     <button class="delete-button">Delete</button>
-    `;
+`;
+    applicationElement.querySelector(".company-name").textContent = application.company;
+    applicationElement.querySelector(".role").textContent = application.role;
+    applicationElement.querySelector(".date").textContent = application.date;
+    applicationElement.querySelector(".status").textContent = application.status;
+    applicationElement.querySelector(".notes").textContent = application.notes || "Not provided";
+
+const linkElement = applicationElement.querySelector(".link");
+
+if (application.link) {
+    const link = document.createElement("a");
+    link.href = application.link;
+    link.textContent = application.link;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    linkElement.appendChild(link);
+} else {
+    linkElement.textContent = "Not provided";
+}
     applicationsList.appendChild(applicationElement);
     const deleteButton = applicationElement.querySelector(".delete-button");
     deleteButton.addEventListener("click", function() {
