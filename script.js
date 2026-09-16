@@ -64,7 +64,11 @@ function displayApplication(application){
     <p><strong>Date Applied:</strong> ${application.date}</p>
     <p><strong>Status:</strong> ${application.status}</p>
     <p><strong>Notes:</strong> ${application.notes}</p>
-    <p><strong>Link:</strong> <a href="${application.link}" target="_blank" rel="noopener noreferrer">${application.link}</a></p>
+    <p><strong>Link:</strong> ${
+    application.link
+        ? `<a href="${application.link}" target="_blank" rel="noopener noreferrer">${application.link}</a>`
+        : "Not provided"
+}</p>
     <button class="delete-button">Delete</button>
     `;
     applicationsList.appendChild(applicationElement);
