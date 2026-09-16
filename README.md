@@ -3,16 +3,13 @@ A beginner-friendly job application and interview tracker.
 
 ## Features 
 
-- Add job applications
-- Track company name and job role 
-- Record application date
-- Track application status
-- Add notes and job posting links
-- View total applications 
-- Track interviews and selected applications
-- Delete applications 
-- Search applications by company name or job role 
-- Case-insensitive search
+- Add application filtering by status
+- Add sorting options
+- Add dark mode
+- Add charts and visual analytics
+- Add editing functionality for applications
+- Add interview reminders
+- Deploy the project using GitHub Pages
 
 ## Technologies Used 
 
