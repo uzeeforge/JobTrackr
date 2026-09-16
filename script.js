@@ -67,15 +67,15 @@ form.addEventListener("submit", function(event) {
 searchInput.addEventListener("input", function() {
     const searchTerm = searchInput.value.toLowerCase();
 
-    const filteredAppllications = applications.filter(function(application) {
+    const filteredApplications = applications.filter(function(application) {
         return  application.company.toLowerCase().includes(searchTerm) ||
                 application.role.toLowerCase().includes(searchTerm);
     });
-    console.log(filteredAppllications);
+    console.log(filteredApplications);
     const applicationCards = applicationsList.querySelectorAll(".application-card");
 
     applicationCards.forEach(function(card,index) {
-        card.style.display = filteredAppllications.includes(applications[index]) ? "" : "none";
+        card.style.display = filteredApplications.includes(applications[index]) ? "" : "none";
     });
 });
 function displayApplication(application){
