@@ -36,30 +36,7 @@ form.addEventListener("submit", function(event) {
 
     
     console.log(application);
-    const applicationsList = document.querySelector("#applicationList");
-    const applicationElement = document.createElement("div");
-    applicationElement.classList.add("application-card");
-    applicationElement.innerHTML = `
-    <h3>${company}</h3>
-    <p><strong>Role:</strong> ${role}</p>
-    <p><strong>Date Applied:</strong> ${date}</p>
-    <p><strong>Status:</strong> ${status}</p>
-    <p><strong>Notes:</strong> ${notes}</p>
-    <p><strong>Link:</strong> <a href="${link}" target="_blank">${link}</a></p>
-    <button class="delete-button">Delete</button>
-    `;
-
-    applicationsList.appendChild(applicationElement);
-    const deleteButton = applicationElement.querySelector(".delete-button");
-    deleteButton.addEventListener("click", function(){ 
-        const applicationIndex = applications.indexOf(application);
-        applications.splice(applicationIndex,1);
-        localStorage.setItem("applications",JSON.stringify(applications));
-        applicationElement.remove();
-        updateStats();
-       
-
-    });
+    displayApplication(application);
     form.reset();
 
 });
